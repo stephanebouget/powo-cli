@@ -1,0 +1,27 @@
+{
+  "name": "powo-cli",
+  "version": "1.0.3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080"
+  },
+  "bin": {
+    "load-locales": "bin/load-locales.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephanebouget/powo-cli.git"
+  },
+  "author": "orange",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stephanebouget/powo-cli/issues"
+  },
+  "homepage": "https://github.com/stephanebouget/powo-cli#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "minimist": "^1.2.5",
+    "request": "^2.88.2"
+  }
+}
