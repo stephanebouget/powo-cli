@@ -36,11 +36,14 @@ for (var i = 0; i < languages.length; i++){
 
         if (project && location) {
 
-            request({
-                'url': url,
-                'method': "GET",
-                'proxy': proxy
-            }, function (error, response, body) {
+            var options = {};
+            options.url = url;
+            options.method = "GET";
+            if (proxy) {
+                options.proxy = proxy;
+            }
+
+            request(options, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     console.log(body);
                     if (!fs.existsSync(location)) {
@@ -53,6 +56,8 @@ for (var i = 0; i < languages.length; i++){
                         );
                     }
                     fs.writeFileSync(location + language + '.json', body);
+                } else {
+                    console.error(error, response, body);
                 }
             });
 
