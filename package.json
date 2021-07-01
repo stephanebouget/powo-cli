@@ -1,6 +1,6 @@
 {
   "name": "powo-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Node module to import Powo tranlsation into your web project.",
   "main": "index.js",
   "scripts": {
