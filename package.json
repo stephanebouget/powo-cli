@@ -1,14 +1,17 @@
 {
   "name": "powo-cli",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Node module to import Powo translation into your web project.",
   "main": "index.js",
   "scripts": {
-    "test": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
-    "test:noproxy": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/"
+    "test-load-locales": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
+    "test-load-locales:noproxy": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/",
+    "test-load-by-features": "load-by-features --project=SoftStore --country=XX --platform=web --version=draft --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
+    "test-load-by-features:noproxy": "load-by-features --project=SoftStore --country=XX --platform=web --version=draft --location=src/locale/"
   },
   "bin": {
-    "load-locales": "bin/load-locales.js"
+    "load-locales": "./bin/load-locales.js",
+    "load-by-features": "./bin/load-by-features.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +24,11 @@
   },
   "homepage": "https://github.com/stephanebouget/powo-cli#readme",
   "dependencies": {
+    "adm-zip": "^0.5.5",
     "fs": "^0.0.1-security",
     "minimist": "^1.2.5",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "superagent": "^6.1.0",
+    "superagent-proxy": "^2.1.0"
   }
 }
