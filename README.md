@@ -16,8 +16,8 @@ npm install powo-cli
 Add load-locales script into your package.json file
 ```
     "scripts": {
-        "powo": "load-locales --project=MyPowoProject --country=XX --platform=web --version=last --languages=fr,en --location=src/locales/",
-    },
+        "powo": "load-locales --project=MyPowoProject --country=XX --platform=web --version=last --languages=fr,en --location=src/locales/"
+    }
 ```
 This script will generate en.json and fr.json files with last approved translations into your src/locales/ development path
 
