@@ -1,6 +1,6 @@
 # powo-cli
 
-Node module to import Powo tranlsation into your web project.
+Node module to import Powo translation into your web project.
 
 ## Installation
 ### Using Yarn

@@ -1,7 +1,7 @@
 {
   "name": "powo-cli",
-  "version": "1.0.5",
-  "description": "Node module to import Powo tranlsation into your web project.",
+  "version": "1.1.0",
+  "description": "Node module to import Powo translation into your web project.",
   "main": "index.js",
   "scripts": {
     "test": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
