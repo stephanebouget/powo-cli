@@ -6,6 +6,7 @@ var request = require('superagent');
 require('superagent-proxy')(request);
 var admZip = require('adm-zip');
 var fs = require('fs');
+var utils = require('./utils');
 
 console.log("POWO CLI load-by-features Version", pjson.version);
 
@@ -17,9 +18,11 @@ var country = args && args.country || 'XX';
 var platform = args && args.platform;
 var version = args && args.version;
 
+location = utils.checkLocationPath(location);
+project = utils.checkProjectName(project);
+
 console.log('proxy', proxy);
 console.log('location', location);
-
 console.log('project', project);
 console.log('country', country);
 console.log('platform', platform);
@@ -45,7 +48,8 @@ if (project && location) {
         .get(url)
         .proxy(proxy)
         .on('error', function (error) {
-            console.log(error);
+            // console.error(error);
+            console.e('Request error');
         })
         .pipe(fs.createWriteStream(zipFile))
         .on('finish', function (e) {

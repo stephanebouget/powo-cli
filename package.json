@@ -4,10 +4,10 @@
   "description": "Node module to import Powo translation into your web project.",
   "main": "index.js",
   "scripts": {
-    "test-load-locales": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
-    "test-load-locales:noproxy": "load-locales --project=SoftStore --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/",
-    "test-load-by-features": "load-by-features --project=SoftStore --country=XX --platform=web --version=draft --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
-    "test-load-by-features:noproxy": "load-by-features --project=SoftStore --country=XX --platform=web --version=draft --location=src/locale/"
+    "test-load-locales": "load-locales --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
+    "test-load-locales:noproxy": "load-locales --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/",
+    "test-load-by-features": "load-by-features --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
+    "test-load-by-features:noproxy": "load-by-features --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --location=src/locale/"
   },
   "bin": {
     "load-locales": "./bin/load-locales.js",
