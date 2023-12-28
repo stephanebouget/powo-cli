@@ -59,7 +59,7 @@ for (var i = 0; i < languages.length; i++){
                     }
                     fs.writeFileSync(location + language + '.json', body);
                 } else {
-                    // console.error(error, response, body);
+                    console.error(error, response, body);
                     console.log('Request error');
                 }
             });
