@@ -56,11 +56,20 @@ if (project && location) {
             console.log('finished downloading');
             var zip = new admZip(zipFile);
             console.log('start unzip');
-            zip.extractAllTo(/*target path*/ location, /*overwrite*/ true);
+            zip.extractAllTo( /*target path*/ location, /*overwrite*/ true);
 
             // Remove temp files
-            fs.unlinkSync(location + 'Config.json');
-            fs.unlinkSync(location + 'Configuration.zip');
+            // fs.unlinkSync(location + 'Config.json');
+            // fs.unlinkSync(location + 'Configuration.zip');
+
+            fs.unlink(location + 'Config.json', function (err) {
+                if (err) throw err;
+                console.log('file Config deleted!');
+            });
+            fs.unlink(location + 'Configuration.json', function (err) {
+                if (err) throw err;
+                console.log('file Configuration deleted!');
+            });
 
             console.log('finished unzip');
         });
