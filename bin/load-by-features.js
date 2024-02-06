@@ -61,15 +61,18 @@ if (project && location) {
             // Remove temp files
             // fs.unlinkSync(location + 'Config.json');
             // fs.unlinkSync(location + 'Configuration.zip');
-
-            fs.unlink(location + 'Config.json', function (err) {
-                if (err) throw err;
-                console.log('file Config deleted!');
-            });
-            fs.unlink(location + 'Configuration.json', function (err) {
-                if (err) throw err;
-                console.log('file Configuration deleted!');
-            });
+            if (fs.existsSync(location + 'Config.json')) {
+                fs.unlink(location + 'Config.json', function (err) {
+                    if (err) throw err;
+                    console.log('file Config deleted!');
+                });
+            }
+            if (fs.existsSync(location + 'Configuration.json')) {
+                fs.unlink(location + 'Configuration.json', function (err) {
+                    if (err) throw err;
+                    console.log('file Configuration deleted!');
+                });
+            }
 
             console.log('finished unzip');
         });
