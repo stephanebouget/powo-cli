@@ -1,5 +1,7 @@
 # powo-cli
 
+[![npm version](https://badge.fury.io/js/powo-cli.svg)](https://badge.fury.io/js/powo-cli)
+
 Node module to import Powo translation into your web project.
 
 ## Installation
