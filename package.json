@@ -27,8 +27,6 @@
     "adm-zip": "^0.5.16",
     "fs": "^0.0.2",
     "minimist": "^1.2.8",
-    "request": "^2.88.2",
-    "superagent": "^10.2.1",
-    "superagent-proxy": "^3.0.0"
+    "request": "^2.88.2"
   }
 }

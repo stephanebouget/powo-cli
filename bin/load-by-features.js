@@ -2,8 +2,7 @@
 
 var pjson = require("../package.json");
 var args = require("minimist")(process.argv.slice(2));
-var request = require("superagent");
-require("superagent-proxy")(request);
+var request = require("request");
 var admZip = require("adm-zip");
 var fs = require("fs");
 var utils = require("./utils");
@@ -56,15 +55,21 @@ if (project && location) {
     );
   }
 
-  request
-    .get(url)
-    .proxy(proxy)
+  var options = {
+    url: url,
+    method: "GET",
+  };
+
+  if (proxy) {
+    options.proxy = proxy;
+  }
+
+  request(options)
     .on("error", function (error) {
-      // console.error(error);
-      console.e("Request error");
+      console.error("Request error");
     })
     .pipe(fs.createWriteStream(zipFile))
-    .on("finish", function (e) {
+    .on("finish", function () {
       console.log("finished downloading");
       var zip = new admZip(zipFile);
       console.log("start unzip");
