@@ -28,5 +28,8 @@
     "fs": "^0.0.2",
     "minimist": "^1.2.8",
     "request": "^2.88.2"
+  },
+  "overrides": {
+    "tough-cookie": "^4.1.3"
   }
 }
