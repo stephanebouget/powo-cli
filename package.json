@@ -4,14 +4,12 @@
   "description": "Node module to import Powo translation into your web project.",
   "main": "index.js",
   "scripts": {
-    "test-load-locales": "load-locales --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
-    "test-load-locales:noproxy": "load-locales --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/",
-    "test-load-by-features": "load-by-features --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
-    "test-load-by-features:noproxy": "load-by-features --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --location=src/locale/"
-  },
-  "bin": {
-    "load-locales": "./bin/load-locales.js",
-    "load-by-features": "./bin/load-by-features.js"
+    "test-load-locales": "node ./bin/load-locales.js --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
+    "test-load-locales:noproxy": "node ./bin/load-locales.js --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --languages=fr,en --location=src/locale/",
+    "test-load-by-features": "node ./bin/load-by-features.js --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --location=src/locale/ --proxy=http://proxypac.si.francetelecom.fr:8080",
+    "test-load-by-features:noproxy": "node ./bin/load-by-features.js --project=\"Demo Todo List\" --country=XX --platform=web --version=draft --location=src/locale/",
+    "test-load-by-modules": "node ./bin/load-by-modules.js --delivery=\"PayPortal Front\" --modules=\"PayPortal,PayPortal Payment Config,PayPortal Back Module\" --platform=web --versions=draft  --proxy=http://p-goodway.rd.francetelecom.fr:8080 --languages=fr,en,pt --location=src/app/i18n",
+    "test-load-by-modules:noproxy": "node ./bin/load-by-modules.js --delivery=\"PayPortal Front\" --modules=\"PayPortal,PayPortal Payment Config,PayPortal Back Module\" --platform=web --versions=draft  --languages=fr,en,pt --location=src/app/i18n"
   },
   "repository": {
     "type": "git",
@@ -24,11 +22,7 @@
   },
   "homepage": "https://github.com/stephanebouget/powo-cli#readme",
   "dependencies": {
-    "adm-zip": "^0.5.16",
-    "fs": "^0.0.2",
     "minimist": "^1.2.8",
-    "request": "^2.88.2",
-    "superagent": "^10.2.1",
-    "superagent-proxy": "^3.0.0"
+    "yauzl": "^3.2.0"
   }
 }

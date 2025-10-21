@@ -10,8 +10,9 @@
 - Multi-language support with automatic file generation
 - Flexible configuration options for different project types
 - Cross-platform support (Android, iOS, Web, Robot)
-- Support for both global and feature-based translation loading
+- Support for global, feature-based, and module-based translation loading
 - Version management (latest approved or draft translations)
+- Module merging capabilities for complex multi-project architectures
 - Proxy support for enterprise environments
 
 ## 📦 Installation
@@ -101,6 +102,33 @@ This command generates separate JSON files for each feature, enabling more granu
 | `location` | Destination folder path                            | ✅       | -       |
 | `proxy`    | Proxy URL (format: `http://proxy.fr:8080`)         | ❌       | -       |
 
+### 🧩 Module-Based Translation Merging
+
+Combine translations from multiple modules into unified language files:
+
+```json
+{
+  "scripts": {
+    "powo:modules": "load-by-modules --delivery=MyDelivery --modules=ModuleA,ModuleB,ModuleC --platform=web --versions=last --languages=fr,en --location=src/locales/"
+  }
+}
+```
+
+This command downloads translations from multiple modules and merges them into consolidated language files, perfect for micro-service architectures or multi-team projects.
+
+#### 🔧 Module Mode Options
+
+| Option      | Description                                               | Required | Default |
+| ----------- | --------------------------------------------------------- | -------- | ------- |
+| `delivery`  | Delivery identifier for module grouping                   | ✅       | -       |
+| `modules`   | Comma-separated list of module names to merge             | ✅       | -       |
+| `country`   | Country code                                              | ❌       | `XX`    |
+| `platform`  | Target platform (`Android`, `iOS`, `web`, `robot`)        | ✅       | -       |
+| `versions`  | Version for each module (single value or comma-separated) | ✅       | -       |
+| `languages` | Comma-separated list of languages to generate             | ✅       | -       |
+| `location`  | Destination folder path                                   | ✅       | -       |
+| `proxy`     | Proxy URL (format: `http://proxy.fr:8080`)                | ❌       | -       |
+
 ## 💡 Examples
 
 ### Basic Web Project
@@ -122,6 +150,13 @@ load-locales --project=MyMobileApp --platform=iOS --version=draft --languages=en
 ```bash
 # Generate feature-specific translation files
 load-by-features --project=MyLargeApp --platform=web --version=last --location=src/locales/features/
+```
+
+### Module Merging for Microservices
+
+```bash
+# Merge translations from multiple modules into unified files
+load-by-modules --delivery=MainApp --modules=AuthModule,PaymentModule,UserModule --platform=web --versions=last --languages=fr,en --location=src/i18n/
 ```
 
 ## 🔧 Development
