@@ -5,6 +5,9 @@
 
 **powo-cli** is a powerful Node.js module designed to seamlessly import Powo translations into your web projects. Streamline your internationalization workflow with support for multiple platforms and flexible translation management.
 
+[<img width="736" height="298" alt="image" src="https://github.com/user-attachments/assets/817ffe74-25f4-460e-a222-12eb8feb8531" />
+](https://private-user-images.githubusercontent.com/13203455/283417030-3a0f7dd5-dbc8-42d1-9700-94f4a5ef1342.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjUxODYzNzAsIm5iZiI6MTc2NTE4NjA3MCwicGF0aCI6Ii8xMzIwMzQ1NS8yODM0MTcwMzAtM2EwZjdkZDUtZGJjOC00MmQxLTk3MDAtOTRmNGE1ZWYxMzQyLmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjA4VDA5Mjc1MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNhNjJjYzBlOWY5YTk1ZmI0ZmQ2NDI4YjFjOThlYTEwOGU1OWNmYmRmMTY5ZTBjMGRlODgwZmMzM2RiYmJmMzUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.TS3gQQxPCiPMyKjOrQbTrlX5cNcUHShdrsTgR8zAnZ0)
+
 ## ✨ Features
 
 - Multi-language support with automatic file generation
