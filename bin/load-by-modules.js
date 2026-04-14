@@ -9,6 +9,8 @@ const path = require("path");
 const url = require("url");
 var utils = require("./utils");
 
+var CONFIG = require("./config.js").CONFIG;
+
 console.log("POWO CLI load-by-modules Version", pjson.version);
 
 let proxy = args && args.proxy;
@@ -25,7 +27,7 @@ let languages = args && args.languages;
 if (!delivery) {
   console.error("Error: --delivery parameter is required");
   console.log(
-    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]"
+    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]",
   );
   process.exit(1);
 }
@@ -33,7 +35,7 @@ if (!delivery) {
 if (!modules) {
   console.error("Error: --modules parameter is required");
   console.log(
-    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]"
+    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]",
   );
   process.exit(1);
 }
@@ -41,7 +43,7 @@ if (!modules) {
 if (!location) {
   console.error("Error: --location parameter is required");
   console.log(
-    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]"
+    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]",
   );
   process.exit(1);
 }
@@ -49,7 +51,7 @@ if (!location) {
 if (!platform) {
   console.error("Error: --platform parameter is required");
   console.log(
-    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]"
+    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]",
   );
   process.exit(1);
 }
@@ -57,7 +59,7 @@ if (!platform) {
 if (!versions) {
   console.error("Error: --versions parameter is required");
   console.log(
-    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]"
+    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]",
   );
   process.exit(1);
 }
@@ -65,7 +67,7 @@ if (!versions) {
 if (!languages) {
   console.error("Error: --languages parameter is required");
   console.log(
-    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]"
+    "Usage: node load-by-modules.js --delivery=<delivery> --modules=<module1,module2> --location=<path> --platform=<platform> --versions=<version> --languages=<lang1,lang2> [--country=<country>] [--proxy=<proxy>]",
   );
   process.exit(1);
 }
@@ -80,7 +82,7 @@ if (versions.includes(",")) {
   versions = versions.split(",");
   if (versions.length < modules.length) {
     versions = versions.concat(
-      Array(modules.length - versions.length).fill("draft")
+      Array(modules.length - versions.length).fill("draft"),
     );
   }
 } else {
@@ -175,8 +177,7 @@ async function processLanguages() {
         const version = versions[i];
 
         const requestUrl = [
-          "https://s3-region01.cloudavenue.orange-business.com/s3selfcare-powo-prod-dist",
-          project,
+          CONFIG.API_URL + project,
           country,
           platform,
           version,
@@ -191,7 +192,7 @@ async function processLanguages() {
           const data = await makeRequest(requestUrl);
           const projectFile = path.join(
             location,
-            `${language}-${project}.json`
+            `${language}-${project}.json`,
           );
           fs.writeFileSync(projectFile, data, "utf8");
           tempFiles.push(projectFile);
@@ -226,7 +227,7 @@ async function processLanguages() {
           };
         } catch (parseError) {
           console.error(
-            `  ✗ Failed to parse ${project}: ${parseError.message}`
+            `  ✗ Failed to parse ${project}: ${parseError.message}`,
           );
           throw parseError;
         }
@@ -245,7 +246,7 @@ async function processLanguages() {
           }
         } catch (cleanupError) {
           console.warn(
-            `  ⚠ Could not clean up ${tempFile}: ${cleanupError.message}`
+            `  ⚠ Could not clean up ${tempFile}: ${cleanupError.message}`,
           );
         }
       });
