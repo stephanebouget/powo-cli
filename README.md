@@ -5,6 +5,10 @@
 
 **powo-cli** is a powerful Node.js module designed to seamlessly import Powo translations into your web projects. Streamline your internationalization workflow with support for multiple platforms and flexible translation management.
 
+![283417030-3a0f7dd5-dbc8-42d1-9700-94f4a5ef1342](https://github.com/user-attachments/assets/adc9ca54-1de4-4ce5-b68b-8e843bc3b743)
+
+
+
 ## ✨ Features
 
 - Multi-language support with automatic file generation
